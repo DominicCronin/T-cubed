@@ -67,7 +67,11 @@
       <Name>TestingFrameworkCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AddItemToPackage.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AssertString.xsd">
       <SubType>Designer</SubType>

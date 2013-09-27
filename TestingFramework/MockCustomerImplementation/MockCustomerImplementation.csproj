@@ -70,7 +70,7 @@
     <Compile Include="Templates\GetPageTitle.cs" />
     <Compile Include="Testing\Setup\ReplaceComponentItem.cs" />
     <Compile Include="Testing\Setup\SampleSetup.cs" />
-    <Compile Include="Testing\Tests\SampleTest.cs" />
+    <Compile Include="Testing\Tests\BreadCrumbTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
