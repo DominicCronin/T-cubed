@@ -9,7 +9,7 @@ using Tridion.ContentManager.Templating.Assembly;
 
 namespace Tridion.Extensions.Testing.Templates
 {
-    [TcmTemplateParameterSchema(ParameterSchema = "resource:Tridion.Extensions.Testing.Resources.AssertHtmlTag.xsd")]
+    [TcmTemplateParameterSchema(ParameterSchema = "resource:Tridion.Extensions.Testing.Templates.Resources.AssertHtmlTag.xsd")]
     [TcmTemplateTitle("Assert html element has correct value")]
     public class AssertHtmlElement : BaseTest
     {
