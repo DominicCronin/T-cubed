@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup\AddItemToPackage.cs" />
+    <Compile Include="Setup\UpdateItemByXPath.cs" />
     <Compile Include="Test\AssertHtmlElement.cs" />
     <Compile Include="Test\AssertString.cs" />
   </ItemGroup>
@@ -86,6 +87,9 @@
     <None Include="Resources\AssertHtmlTag.xsd">
       <SubType>Designer</SubType>
     </None>
+    <EmbeddedResource Include="Resources\UpdateItemByXPath.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

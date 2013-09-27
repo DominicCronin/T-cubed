@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Tridion.ContentManager.Templating;
 using Tridion.ContentManager.Templating.Assembly;
 
@@ -36,6 +37,17 @@ namespace Tridion.Extensions.Testing
         public void LogMessage(string message)
         {
             Logger.Warning("[Testing Framework] " + message);
+        }
+
+        public XmlNamespaceManager namespaceManager
+        {
+            get
+            {
+                var nsm = new XmlNamespaceManager(new NameTable());                     
+                nsm.AddNamespace("tcm", "http://www.tridion.com/ContentManager/5.0");
+                nsm.AddNamespace("xlink", "http://www.w3.org/1999/xlink");
+                return nsm;
+            }
         }
     }
 }
