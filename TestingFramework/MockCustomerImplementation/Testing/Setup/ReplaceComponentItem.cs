@@ -19,7 +19,7 @@ namespace TridionImplementationTestingSystem
             XmlDocument itemDoc = new XmlDocument();
 
             string resourceName = "MockCustomerImplementation.Testing.Setup.ComponentXml.xml";
-            using (Stream manifestResourceStream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourceName))
+            using (Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
             using (XmlTextReader reader = new XmlTextReader(manifestResourceStream))
             {
                 itemDoc.Load(reader);
