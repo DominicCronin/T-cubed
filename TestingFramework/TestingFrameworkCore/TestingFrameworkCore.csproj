@@ -58,6 +58,12 @@
     <Compile Include="BaseGeneric.cs" />
     <Compile Include="BaseSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\AssertString.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AssertString.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

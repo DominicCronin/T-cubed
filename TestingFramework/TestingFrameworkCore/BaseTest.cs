@@ -27,6 +27,24 @@ namespace Tridion.Extensions.Testing
                 return Package.GetByName(name) != null;
             return Package.GetByName(name) != null ? Package.GetByName(name).GetAsString().Equals(value) : false;
         }
+
+        protected void AreEqual(object expected, object actual, string errorMessage = null)
+        {
+            if (expected is string)
+            {
+                if (expected.ToString() != actual.ToString())
+                {
+                    throw new Exception(string.Format("Expected: {0} Actual: {1} {2}", expected, actual, errorMessage));
+                }
+            }
+            else
+            {
+                if (expected != actual)
+                {
+                    throw new Exception(string.Format("Expected: {0} Actual: {1} {2}", expected, actual, errorMessage));
+                }
+            }
+        }
         #endregion
     }
 }
