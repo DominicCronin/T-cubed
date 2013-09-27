@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Templates\GetBreadCrumbs.cs" />
     <Compile Include="Templates\GetPageTitle.cs" />
+    <Compile Include="Templates\ReplaceComponentItem.cs" />
     <Compile Include="Tests\SampleSetup.cs" />
     <Compile Include="Tests\SampleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
