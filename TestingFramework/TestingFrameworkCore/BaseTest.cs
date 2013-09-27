@@ -21,7 +21,7 @@ namespace Tridion.Extensions.Testing
 
 
         #region Assertion methods
-        protected bool AssertPackageContains(string name, string value = null)
+        public bool AssertPackageContains(string name, string value = null)
         {
             if (value == null)
                 return Package.GetByName(name) != null;

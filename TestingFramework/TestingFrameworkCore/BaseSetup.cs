@@ -21,9 +21,13 @@ namespace Tridion.Extensions.Testing
 
 
         #region Package manipulation methods
-        protected void SetPackageItem(string name, string value)
+        public void SetPackageItem(string name, string value)
         {
             Package.GetByName(name).SetAsString(value);
+        }
+        public void LoadXmlItemFromEmbeddedResource(string packageItemName, string resourcePath)
+        {
+
         }
         #endregion
     }
