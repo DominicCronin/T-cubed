@@ -20,11 +20,12 @@ namespace MockCustomerImplementation.Testing.Setup
             // load xml document from embedded resource
             XmlDocument itemDoc = new XmlDocument();
             using (Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("MockCustomerImplementation.Testing.Setup.ComponentXml.xml"))
-            using (XmlTextReader reader = new XmlTextReader(manifestResourceStream))
             {
-                itemDoc.Load(reader);
+                using (XmlTextReader reader = new XmlTextReader(manifestResourceStream))
+                {
+                    itemDoc.Load(reader);
+                }
             }
-
             SetPackageItem(Package.ComponentName, itemDoc, ContentType.Component);
         }
     }

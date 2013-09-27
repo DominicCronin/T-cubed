@@ -25,7 +25,6 @@ namespace Tridion.Extensions.Testing.Templates.Setup
             }
 
             SetPackageItem(Package.GetByName("variableName").GetAsString(),Package.GetByName("newValue").GetAsString(), true);
-//            Package.PushItem(Package.GetByName("variableName").GetAsString(), Package.CreateStringItem(ContentType.Text, Package.GetByName("newValue").GetAsString()));
         }
     }
 }
