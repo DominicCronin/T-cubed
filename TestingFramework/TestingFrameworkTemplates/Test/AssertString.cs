@@ -16,18 +16,18 @@ namespace Tridion.Extensions.Testing.Templates
         {
             if (Package.GetByName("variableName") == null)
             {
-                throw new Exception("variableName parameter is not set");
+                Fail("variableName parameter is not set");
             }
 
             if (Package.GetByName("expectedValue") == null)
             {
-                throw new Exception("expectedValue parameter is not set");
+                Fail("expectedValue parameter is not set");
             }
 
             var variableName = Package.GetByName("variableName").GetAsString();
             if (Package.GetByName(variableName) == null)
             {
-                throw new Exception(string.Format("Variable {0} not found in the package", variableName));
+                Fail(string.Format("Variable {0} not found in the package", variableName));
             }
             var variableValue = Package.GetByName(variableName).GetAsString();
 

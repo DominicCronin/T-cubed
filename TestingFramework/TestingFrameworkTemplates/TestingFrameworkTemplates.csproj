@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +67,7 @@
     <Compile Include="Setup\UpdateItemByXPath.cs" />
     <Compile Include="Test\AssertHtmlElement.cs" />
     <Compile Include="Test\AssertString.cs" />
+    <Compile Include="Test\AssertImageSize.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestingFrameworkCore\TestingFrameworkCore.csproj">
@@ -84,10 +86,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AssertHtmlTag.xsd">
+
+    <EmbeddedResource Include="Resources\AssertHtmlTag.xsd">
       <SubType>Designer</SubType>
-    </None>
+
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\UpdateItemByXPath.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AssertImageSize.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
