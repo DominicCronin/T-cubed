@@ -32,5 +32,10 @@ namespace Tridion.Extensions.Testing
             Transform();
         }
         public abstract void Transform();
+
+        public void LogMessage(string message)
+        {
+            Logger.Warning("[Testing Framework] " + message);
+        }
     }
 }
