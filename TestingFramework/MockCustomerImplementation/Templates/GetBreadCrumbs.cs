@@ -42,7 +42,7 @@ namespace MockCustomerImplementation.Templates
                 sb.Insert(0, sg.Title + " > ");
                 sg = sg.OrganizationalItem as StructureGroup;
             }
-            package.CreateStringItem(ContentType.Html, sb.ToString());
+            package.PushItem("breadcrumbs", package.CreateStringItem(ContentType.Html, sb.ToString()));
 
         }
 

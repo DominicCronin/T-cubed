@@ -33,8 +33,7 @@ namespace MockCustomerImplementation.Templates
                 Logger.Error("no page found (is this a component template?)");
             }
             Page page = (Page)engine.GetObject(item.GetAsSource().GetValue("ID"));
-            package.CreateStringItem(ContentType.Text, string.Format("{0} ({1})", page.ContextRepository.Title, page.Title));
-
+            package.PushItem("pagetitle", package.CreateStringItem(ContentType.Text, string.Format("{0} ({1})", page.ContextRepository.Title, page.Title)));
         }
 
 
