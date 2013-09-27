@@ -10,28 +10,14 @@ using Tridion.ContentManager.Templating;
 using Tridion.ContentManager.Templating.Assembly;
 using Tridion.Extensions.Testing;
 
-namespace TridionImplementationTestingSystem
+namespace MockCustomerImplementation.Testing.Setup
 {
-    [TcmTemplateTitle("ReplaceComponentItemAssembly")]
+    [TcmTemplateTitle("Replace component item from assembly")]
     public class ReplaceComponentItem : BaseSetup
     {
         public override void Setup()
         {
-            XmlDocument itemDoc = new XmlDocument();
-
-            string resourceName = "MockCustomerImplementation.Testing.Setup.ComponentXml.xml";
-            using (Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
-            using (XmlTextReader reader = new XmlTextReader(manifestResourceStream))
-            {
-                itemDoc.Load(reader);
-            }
-
-            var componentItem = this.Package.GetByType(ContentType.Component);
-            this.Package.Remove(componentItem);
-
-            var modifiedComponentItem = this.Package.CreateXmlDocumentItem(ContentType.Component, itemDoc);
-            this.Package.PushItem(Package.ComponentName, modifiedComponentItem);
+            AddEmbeddedResourceToPackage(Package.ComponentName, "MockCustomerImplementation.Testing.Setup.ComponentXml.xml", ContentType.Component);
         }
-
     }
 }
