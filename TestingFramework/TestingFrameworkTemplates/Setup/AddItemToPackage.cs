@@ -24,7 +24,8 @@ namespace Tridion.Extensions.Testing.Templates.Setup
                 throw new Exception("newValue parameter is not set");
             }
 
-            Package.PushItem(Package.GetByName("variableName").GetAsString(), Package.CreateStringItem(ContentType.Text, Package.GetByName("newValue").GetAsString()));
+            SetPackageItem(Package.GetByName("variableName").GetAsString(),Package.GetByName("newValue").GetAsString(), true);
+//            Package.PushItem(Package.GetByName("variableName").GetAsString(), Package.CreateStringItem(ContentType.Text, Package.GetByName("newValue").GetAsString()));
         }
     }
 }
