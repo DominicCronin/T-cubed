@@ -17,11 +17,11 @@ namespace Tridion.Extensions.Testing.Templates
         {
             if (Package.GetByName("xpath") == null)
             {
-                throw new Exception("xpath parameter is not set");
+                Fail("xpath parameter is not set");
             }
             if (Package.GetByName("expectedValue") == null)
             {
-                throw new Exception("expectedValue parameter is not set");
+                Fail("expectedValue parameter is not set");
             }
 
 
@@ -30,7 +30,7 @@ namespace Tridion.Extensions.Testing.Templates
 
             if (Package.GetByName(outputName) == null)
             {
-                throw new Exception(string.Format("Output variable {0} not found in the package", outputName));
+                Fail(string.Format("Output variable {0} not found in the package", outputName));
             }
 
             var html = new HtmlDocument();
