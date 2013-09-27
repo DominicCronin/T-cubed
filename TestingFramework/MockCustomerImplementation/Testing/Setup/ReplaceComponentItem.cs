@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 using System.Xml;
 using Tridion.ContentManager.Templating;
 using Tridion.ContentManager.Templating.Assembly;
+using Tridion.Extensions.Testing;
 
 namespace TridionImplementationTestingSystem
 {
     [TcmTemplateTitle("ReplaceComponentItemAssembly")]
-    public class ReplaceComponentItem : ITemplate
+    public class ReplaceComponentItem : BaseSetup
     {
-        public void Transform(Engine engine, Package package)
+        public override void Setup()
         {
             XmlDocument itemDoc = new XmlDocument();
 
@@ -25,11 +26,12 @@ namespace TridionImplementationTestingSystem
                 itemDoc.Load(reader);
             }
 
-            var componentItem = package.GetByType(ContentType.Component);
-            package.Remove(componentItem);
+            var componentItem = this.Package.GetByType(ContentType.Component);
+            this.Package.Remove(componentItem);
 
-            var modifiedComponentItem = package.CreateXmlDocumentItem(ContentType.Component, itemDoc);
-            package.PushItem(Package.ComponentName, modifiedComponentItem);
+            var modifiedComponentItem = this.Package.CreateXmlDocumentItem(ContentType.Component, itemDoc);
+            this.Package.PushItem(Package.ComponentName, modifiedComponentItem);
         }
+
     }
 }
