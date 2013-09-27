@@ -40,22 +40,36 @@
     <Reference Include="Tridion.Common">
       <HintPath>..\..\ReferenceAssemblies\Tridion.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Tridion.ContentManager">
+      <HintPath>..\..\ReferenceAssemblies\Tridion.ContentManager.dll</HintPath>
+    </Reference>
     <Reference Include="Tridion.ContentManager.Common">
       <HintPath>..\..\ReferenceAssemblies\Tridion.ContentManager.Common.dll</HintPath>
     </Reference>
     <Reference Include="Tridion.ContentManager.Publishing">
       <HintPath>..\..\ReferenceAssemblies\Tridion.ContentManager.Publishing.dll</HintPath>
     </Reference>
+    <Reference Include="Tridion.ContentManager.Queuing">
+      <HintPath>..\..\ReferenceAssemblies\Tridion.ContentManager.Queuing.dll</HintPath>
+    </Reference>
+    <Reference Include="Tridion.ContentManager.TemplateTypes">
+      <HintPath>..\..\ReferenceAssemblies\Tridion.ContentManager.TemplateTypes.dll</HintPath>
+    </Reference>
     <Reference Include="Tridion.ContentManager.Templating">
       <HintPath>..\..\ReferenceAssemblies\Tridion.ContentManager.Templating.dll</HintPath>
+    </Reference>
+    <Reference Include="Tridion.ContentManager.TypeRegistration">
+      <HintPath>..\..\ReferenceAssemblies\Tridion.ContentManager.TypeRegistration.dll</HintPath>
     </Reference>
     <Reference Include="Tridion.Logging">
       <HintPath>..\..\ReferenceAssemblies\Tridion.Logging.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SampleSetup.cs" />
-    <Compile Include="SampleTest.cs" />
+    <Compile Include="Templates\GetBreadCrumbs.cs" />
+    <Compile Include="Templates\GetPageTitle.cs" />
+    <Compile Include="Tests\SampleSetup.cs" />
+    <Compile Include="Tests\SampleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
