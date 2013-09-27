@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceComponentItem", "ReplaceComponentItem\ReplaceComponentItem.csproj", "{CC2B7BE1-F783-4510-B42A-0262939D1886}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingFrameworkCore", "TestingFrameworkCore\TestingFrameworkCore.csproj", "{B75AC99D-951E-4391-9A2F-936E6D155CCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockCustomerImplementation", "MockCustomerImplementation\MockCustomerImplementation.csproj", "{6281540E-35D0-4A61-9F09-B749BCB2D7A9}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC2B7BE1-F783-4510-B42A-0262939D1886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC2B7BE1-F783-4510-B42A-0262939D1886}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC2B7BE1-F783-4510-B42A-0262939D1886}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC2B7BE1-F783-4510-B42A-0262939D1886}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B75AC99D-951E-4391-9A2F-936E6D155CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B75AC99D-951E-4391-9A2F-936E6D155CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B75AC99D-951E-4391-9A2F-936E6D155CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
