@@ -28,39 +28,79 @@ namespace Tridion.Extensions.Testing
         {
             Package.GetByName(name).SetAsString(value);
         }
-
-        public void AddEmbeddedResourceToPackage(string packageItemName, string resourcePath, ContentType contentType)
+        public void SetPackageItem(string name, string value, bool overwrite = true)
         {
-            Item packageItem;
-            if (contentType == ContentType.Xml || contentType == ContentType.Component || contentType == ContentType.Page)
+            SetPackageItem(name, value, ContentType.Text, overwrite);
+        }
+        public void SetPackageItem(string name, string value, ContentType contentType, bool overwrite = true)
+        {
+            // if there is already an item by the specified name, remove it from the package first
+            var originalItem = this.Package.GetByName(name);
+            if (originalItem != null && !overwrite)
             {
-                XmlDocument itemDoc = new XmlDocument();
-                using (Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath))
-                using (XmlTextReader reader = new XmlTextReader(manifestResourceStream))
-                {
-                    itemDoc.Load(reader);
-                    packageItem = Package.CreateXmlDocumentItem(contentType, itemDoc);
-                }
+                LogMessage(string.Format("unable to set package item with name {0}, item already exists", name));
+                return;
+            }
+            if (originalItem != null && overwrite)
+                this.Package.Remove(originalItem);
+
+            Item packageItem;
+
+
+
+            if (contentType == ContentType.Html
+                || contentType == ContentType.Text
+                || contentType == ContentType.Xhtml)
+            {
+                packageItem = Package.CreateStringItem(contentType, value);
             }
             else
             {
-                using (Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath))
-                using (TextReader reader = new StreamReader(manifestResourceStream))
-                {
-                    string s = reader.ReadToEnd();
-                    packageItem = Package.CreateStringItem(contentType, s);
-                }
+                LogMessage(string.Format("unable to set package item with name {0}: unsupported content type {1}", name, contentType));
+                return;
             }
 
-            // if there is already an item by the specified name, remove it from the package first
-            var originalItem = this.Package.GetByName(packageItemName);
-            if (originalItem != null)
-                this.Package.Remove(originalItem);
 
             // push item into the package
-            this.Package.PushItem(packageItemName, packageItem);
+            this.Package.PushItem(name, packageItem);
 
         }
+
+        public void SetPackageItem(string name, XmlDocument value, ContentType contentType, bool overwrite = true)
+        {
+            // if there is already an item by the specified name, remove it from the package first
+            var originalItem = this.Package.GetByName(name);
+            if (originalItem != null && !overwrite)
+            {
+                LogMessage(string.Format("unable to set package item with name {0}, item already exists", name));
+                return;
+            }
+            if (originalItem != null && overwrite)
+                this.Package.Remove(originalItem);
+
+            Item packageItem;
+
+
+
+            if (contentType == ContentType.Xml
+                || contentType == ContentType.Page
+                || contentType == ContentType.Component)
+            {
+                packageItem = Package.CreateXmlDocumentItem(contentType, value);
+            }
+            else
+            {
+                LogMessage(string.Format("unable to set package item with name {0}: unsupported content type {1}", name, contentType));
+                return;
+            }
+
+
+            // push item into the package
+            this.Package.PushItem(name, packageItem);
+
+        }
+
+
         #endregion
     }
 }
