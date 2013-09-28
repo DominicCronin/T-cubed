@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockCustomerImplementation"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingFrameworkTemplates", "TestingFrameworkTemplates\TestingFrameworkTemplates.csproj", "{EF0BFAFC-DCFD-457E-96FE-8DB5563DBD52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsTestRunner", "MsTestRunner\MsTestRunner.csproj", "{F2A8A20F-05E7-4446-80FF-6AD1885633B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{EF0BFAFC-DCFD-457E-96FE-8DB5563DBD52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF0BFAFC-DCFD-457E-96FE-8DB5563DBD52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF0BFAFC-DCFD-457E-96FE-8DB5563DBD52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2A8A20F-05E7-4446-80FF-6AD1885633B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2A8A20F-05E7-4446-80FF-6AD1885633B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2A8A20F-05E7-4446-80FF-6AD1885633B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2A8A20F-05E7-4446-80FF-6AD1885633B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
