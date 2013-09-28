@@ -32,7 +32,7 @@ namespace Tridion.Extensions.Testing.Templates
             {
                 throw new Exception(string.Format("Output variable {0} not found in the package", packageItemName));
             }
-
+            // TODO: use loading logic frm UpdateItemByXPath
             var xml = new XmlDocument();
             xml.LoadXml(Package.GetByName(packageItemName).GetAsString());
 
