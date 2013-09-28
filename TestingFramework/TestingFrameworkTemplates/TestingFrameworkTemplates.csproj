@@ -30,12 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HtmlAgilityPack">
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReferenceAssemblies\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,10 +63,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup\AddItemToPackage.cs" />
-    <Compile Include="Setup\UpdateItemByXPath.cs" />
     <Compile Include="Test\AssertHtmlElement.cs" />
     <Compile Include="Test\AssertString.cs" />
-    <Compile Include="Test\AssertImageSize.cs" />
+    <Compile Include="Test\AssertXmlByXpath.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestingFrameworkCore\TestingFrameworkCore.csproj">
@@ -88,12 +87,9 @@
     <EmbeddedResource Include="Resources\AssertHtmlTag.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\UpdateItemByXPath.xsd">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\AssertImageSize.xsd">
+    <EmbeddedResource Include="Resources\AssertXmlByXpath.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
