@@ -22,7 +22,7 @@ namespace Tridion.Extensions.Testing.MsTestRunner
             var templateId = TestContext.DataRow["TemplateId"].ToString();
             var itemId = TestContext.DataRow["ItemId"].ToString();
 
-            var client = new SessionAwareCoreServiceClient();
+            var client = new SessionAwareCoreServiceClient("wsHttp_2012");
             client.ClientCredentials.Windows.ClientCredential.Domain = ConfigurationManager.AppSettings.Get("domain");
             client.ClientCredentials.Windows.ClientCredential.Password = ConfigurationManager.AppSettings.Get("password");
             client.ClientCredentials.Windows.ClientCredential.UserName = ConfigurationManager.AppSettings.Get("username");
