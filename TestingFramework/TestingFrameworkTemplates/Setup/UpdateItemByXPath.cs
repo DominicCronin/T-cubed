@@ -9,7 +9,7 @@ using Tridion.ContentManager.Templating.Assembly;
 namespace Tridion.Extensions.Testing.Templates.Setup
 {
     [TcmTemplateParameterSchema(ParameterSchema = "resource:Tridion.Extensions.Testing.Templates.Resources.UpdateItemByXPath.xsd")]
-    [TcmTemplateTitle("Update Item by XPath")]
+    [TcmTemplateTitle("Update item by XPath")]
     public class UpdateItemByXPath : BaseSetup
     {
         public override void Setup()
@@ -34,27 +34,49 @@ namespace Tridion.Extensions.Testing.Templates.Setup
             string newValue = newValueItem.GetAsString();
 
             ContentType inputItemType = null; 
-            var item = this.Package.GetByType(ContentType.Component);
-            if (item != null)
+
+            Item item = null;
+            if (Package.GetByName("packageItemName") != null)
             {
-                inputItemType = ContentType.Component;
+                string packageItemName = Package.GetByName("packageItemName").GetAsString();
+                item = Package.GetByName(packageItemName);
+                inputItemType = ContentType.Xml;
             }
             else
             {
-                item = this.Package.GetByType(ContentType.Page);
+                item = this.Package.GetByType(ContentType.Component);
                 if (item != null)
                 {
-                    inputItemType = ContentType.Page;
+                    inputItemType = ContentType.Component;
                 }
                 else
                 {
-                    throw new UnexpectedInputItemTypeException("Input item was neither a Component nor a Page");
+                    item = this.Package.GetByType(ContentType.Page);
+                    if (item != null)
+                    {
+                        inputItemType = ContentType.Page;
+                    }
+                    else
+                    {
+                        throw new UnexpectedInputItemTypeException("Input item was neither a Component nor a Page");
+                    }
+                }
+            }
+            this.Package.Remove(item);
+
+            // if extra namespaces are configured, load them into the NamespaceManager
+            if (Package.GetByName("namespaces") != null)
+            {
+
+                foreach (string nsdef in Package.GetByName("namespaces").GetAsString().Split(','))
+                {
+                    string[] n = nsdef.Trim().Split('=');
+                    NamespaceManager.AddNamespace(n[0], n[1]);
                 }
             }
 
-            this.Package.Remove(item);
             var itemDoc = item.GetAsXmlDocument();
-            var titleElement = itemDoc.SelectSingleNode(xpath, this.namespaceManager);
+            var titleElement = itemDoc.SelectSingleNode(xpath, NamespaceManager);
             titleElement.InnerText = newValue;
 
             var modifiedItem = this.Package.CreateXmlDocumentItem(inputItemType, itemDoc);

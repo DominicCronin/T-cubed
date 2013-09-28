@@ -39,7 +39,7 @@ namespace Tridion.Extensions.Testing
             Logger.Warning("[Testing Framework] " + message);
         }
 
-        public XmlNamespaceManager namespaceManager
+        public XmlNamespaceManager NamespaceManager
         {
             get
             {

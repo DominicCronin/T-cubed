@@ -3,9 +3,10 @@
   <xsd:annotation>
     <xsd:appinfo>
       <tcm:Labels xmlns:tcm="http://www.tridion.com/ContentManager/5.0">
-        <tcm:Label ElementName="xpath" Metadata="false">xpath</tcm:Label>
-        <tcm:Label ElementName="expectedValue" Metadata="false">expectedValue</tcm:Label>
-        <tcm:Label ElementName="outputName" Metadata="false">outputName</tcm:Label>
+        <tcm:Label ElementName="xpath" Metadata="false">XPath query</tcm:Label>
+        <tcm:Label ElementName="expectedValue" Metadata="false">Expected value</tcm:Label>
+        <tcm:Label ElementName="packageItemName" Metadata="false">Package item to examine (defaults to component or page)</tcm:Label>
+        <tcm:Label ElementName="namespaces" Metadata="false">Extra namespaces (tcm + xlink are provided)</tcm:Label>
       </tcm:Labels>
     </xsd:appinfo>
   </xsd:annotation>
@@ -26,14 +27,14 @@
             </xsd:appinfo>
           </xsd:annotation>
         </xsd:element>
-        <xsd:element name="parameterName" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+        <xsd:element name="packageItemName" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
           <xsd:annotation>
             <xsd:appinfo>
               <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
             </xsd:appinfo>
           </xsd:annotation>
         </xsd:element>
-        <xsd:element name="namespaces" minOccurs="0" maxOccurs="unbounded" type="xsd:normalizedString">
+        <xsd:element name="namespaces" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
           <xsd:annotation>
             <xsd:appinfo>
               <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>

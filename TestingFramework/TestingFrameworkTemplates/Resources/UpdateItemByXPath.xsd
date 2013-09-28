@@ -5,6 +5,8 @@
       <tcm:Labels xmlns:tcm="http://www.tridion.com/ContentManager/5.0">
         <tcm:Label ElementName="xpath" Metadata="false">XPath to the element to be updated</tcm:Label>
         <tcm:Label ElementName="newValue" Metadata="false">New value for the package variable</tcm:Label>
+        <tcm:Label ElementName="packageItemName" Metadata="false">Package item to update (defaults to component or page)</tcm:Label>
+        <tcm:Label ElementName="namespaces" Metadata="false">Extra namespaces (tcm + xlink are provided)</tcm:Label>
       </tcm:Labels>
     </xsd:appinfo>
   </xsd:annotation>
@@ -25,6 +27,21 @@
             </xsd:appinfo>
           </xsd:annotation>
         </xsd:element>
+        <xsd:element name="packageItemName" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="namespaces" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>

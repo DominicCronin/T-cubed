@@ -10,7 +10,7 @@ using Tridion.ContentManager.Templating.Assembly;
 namespace Tridion.Extensions.Testing.Templates
 {
     [TcmTemplateParameterSchema(ParameterSchema = "resource:Tridion.Extensions.Testing.Templates.Resources.AssertXmlByXpath.xsd")]
-    [TcmTemplateTitle("Run xpath on XML document")]
+    [TcmTemplateTitle("Assert xpath on XML document")]
     public class AssertXmlByXpath : BaseTest
     {
         public override void Test()
@@ -25,33 +25,30 @@ namespace Tridion.Extensions.Testing.Templates
             }
 
 
-            var parameterName = "Output";
-            if (Package.GetByName("parameterName") != null) { parameterName = Package.GetByName("parameterName").GetAsString(); }
+            var packageItemName = "Output";
+            if (Package.GetByName("packageItemName") != null) { packageItemName = Package.GetByName("packageItemName").GetAsString(); }
 
-            if (Package.GetByName(parameterName) == null)
+            if (Package.GetByName(packageItemName) == null)
             {
-                throw new Exception(string.Format("Output variable {0} not found in the package", parameterName));
+                throw new Exception(string.Format("Output variable {0} not found in the package", packageItemName));
             }
 
             var xml = new XmlDocument();
-            xml.LoadXml(Package.GetByName(parameterName).GetAsString());
+            xml.LoadXml(Package.GetByName(packageItemName).GetAsString());
 
 
-            XmlNode nodeToCheck;
+
+            // if extra namespaces are configured, load them into the NamespaceManager
             if (Package.GetByName("namespaces") != null)
             {
-                var nsmgr = new XmlNamespaceManager(xml.NameTable);
+
                 foreach (string nsdef in Package.GetByName("namespaces").GetAsString().Split(','))
                 {
                     string[] n = nsdef.Trim().Split('=');
-                    nsmgr.AddNamespace(n[0], n[1]);
+                    NamespaceManager.AddNamespace(n[0], n[1]);
                 }
-                nodeToCheck = xml.SelectSingleNode(Package.GetByName("xpath").GetAsString(), nsmgr);
             }
-            else
-            {
-                nodeToCheck = xml.SelectSingleNode(Package.GetByName("xpath").GetAsString());
-            }
+            XmlNode nodeToCheck = xml.SelectSingleNode(Package.GetByName("xpath").GetAsString(), NamespaceManager);
 
             if (nodeToCheck == null)
             {
